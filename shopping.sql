@@ -1,10 +1,15 @@
-
+//*
+This is the table in order for the users to have credit in their account
+*// 
 CREATE TABLE Account(
   idAccount INT NOT NULL AUTO_INCREMENT,
   AccountName VARCHAR(20) NULL,
   AcountCredit VARCHAR(20) NULL,
   PRIMARY KEY (idAccount));
 
+//*
+This is the table where the customers will enter their data
+*// 
 
 CREATE TABLE Customer (
   idCustomer INT NOT NULL AUTO_INCREMENT,
@@ -23,6 +28,9 @@ CREATE TABLE Customer (
   FOREIGN KEY (Account_idAccount)
   REFERENCES Account (idAccount));
   
+ //*
+This is the table to see the status of the customers order
+*// 
 
 CREATE TABLE Status (
   idStatus INT NOT NULL AUTO_INCREMENT,
@@ -34,7 +42,9 @@ CREATE TABLE Status (
    FOREIGN KEY (Customer_idCustomer)
    REFERENCES Customer(idCustomer));
    
-
+//*
+This is the table where the products will be stored which the customers can browse from
+*// 
 CREATE TABLE Product(
   idProduct INT NOT NULL AUTO_INCREMENT,
   ProductName VARCHAR(45) NOT NULL,
@@ -45,6 +55,9 @@ CREATE TABLE Product(
   PRIMARY KEY (idProduct),
   UNIQUE INDEX idProduct_UNIQUE (idProduct ASC));
 
+//*
+This is the table to solve the many to many between the status and product table
+*// 
 
 CREATE TABLE Status_has_Product (
   Status_idStatus INT NOT NULL,
